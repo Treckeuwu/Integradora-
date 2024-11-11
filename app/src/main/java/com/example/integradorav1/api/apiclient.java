@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class apiclient
 {
-    private static final String BASE_URL =  "https://pokeapi.co/api/v2/";
+    private static final String BASE_URL =  "http://192.168.1.22:8000/";
     private static Retrofit retrofit;
 
     public static Retrofit instanciaRetrofit()

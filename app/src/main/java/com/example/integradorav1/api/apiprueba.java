@@ -2,6 +2,7 @@ package com.example.integradorav1.api;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,9 @@ public class apiprueba extends AppCompatActivity {
 
 
         callUser serviciochido = apiclient.instanciaRetrofit().create(callUser.class);
+        TextView nombre = findViewById(R.id.Nombre);
+        TextView correo = findViewById(R.id.correo);
+
 
         Call<usermodel> call= serviciochido.getUser(6);
         call.enqueue(new Callback<usermodel>() {
@@ -32,9 +36,12 @@ public class apiprueba extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     usermodel user = response.body();
                     Log.d("API", "Nombre: " + user.getNombresillo());
+                    nombre.setText(user.getNombresillo());
+                    correo.setText(user.getCorreo());
+
                 } else {
                     Log.e("API", "Respuesta sin éxito, código: " + response.code());
-                    Log.e("API", "Cuerpo de la respuesta: " + response.message());  // Agregado para ver más detalles.
+                    Log.e("API", "Cuerpo de la respuesta: " + response.message());
                 }
             }
 

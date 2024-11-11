@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Button boton = findViewById(R.id.boton);
 
         boton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, apiprueba.class);
+            Intent intent = new Intent(MainActivity.this, apiprueba.class);
             startActivity(intent);
         });
 

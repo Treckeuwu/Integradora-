@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 
 public interface callUser
 {
-    @GET("pokemon/{id}")
+    @GET("usuario/{id}")
     Call<usermodel> getUser(@Path("id") int id);
 
 
